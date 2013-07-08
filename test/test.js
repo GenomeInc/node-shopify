@@ -1,3 +1,4 @@
+var prompt     = require('prompt');
 var shopifyObj = require('../lib/shopify');
 
 var shopify = new shopifyObj({
@@ -8,4 +9,20 @@ var shopify = new shopifyObj({
 });
 
 var url = shopify.createURL();
-console.log(url);
+console.log('\n\nGo to the following URL:\n\n' + url + '\n\n');
+
+prompt.start();
+
+prompt.get([
+  {
+    name: 'code',
+    message: 'Enter the code parameter from the returned URL',
+    required: true
+  }
+], function(err, result) {
+  console.log('\n\nConnecting to Shopify, retrieving Access Token...\n\n');
+  shopify.getAccessToken(result.code, function(err, access_token) {
+    console.log(err);
+    console.log(JSON.parse(access_token));
+  });
+});

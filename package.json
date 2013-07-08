@@ -1,16 +1,36 @@
 {
-  "author": "John Josef",
-  "name": "Shopify Connect",
+  "name": "shopify-node",
   "description": "A NodeJS connector for Shopify OAuth2",
   "version": "0.1.1",
+  "author": {
+    "name": "Nodejitsu Inc.",
+    "email": "hello@typefoo.com"
+  },
+  "maintainers": [
+    {
+      "name": "jjosef",
+      "email": "john@typefoo.com"
+    },
+    {
+      "name": "jesusabdullah",
+      "email": "josh@nodejitsu.com"
+    }
+  ],
   "repository": {
+    "type": "git",
     "url": "https://github.com/uh-sem-blee/shopify-node"
   },
+  "devDependencies": {
+    "prompt": ">= 0.2.11"
+  },
   "main": "./lib/shopify",
-  "dependencies": {},
-  "devDependencies": {},
-  "optionalDependencies": {},
   "engines": {
-    "node": "*"
-  }
+    "node": ">= 0.10.0"
+  },
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/uh-sem-blee/shopify-node/issues"
+  },
+  "_id": "shopify-node@0.1.1",
+  "_from": "shopify-node@"
 }
