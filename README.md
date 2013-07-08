@@ -67,7 +67,7 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
         ]
       }
     };
-    shopify.post('/admin/orders.json', postData, function(err, resp) {
+    shopify.post('/admin/products.json', postData, function(err, resp) {
       console.log(resp);
     });
 
