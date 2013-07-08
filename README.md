@@ -2,7 +2,7 @@
 
     npm install shopify-node
 
-Now you can run the test by:
+You can run the test by cloning this repo and running:
 
     node test/test
 
