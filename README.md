@@ -4,6 +4,7 @@
 
 You can run the test by cloning this repo and running:
 
+    npm install
     node test/test
 
 For setting up:
