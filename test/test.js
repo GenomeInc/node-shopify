@@ -9,9 +9,6 @@ var shopify = new shopifyObj({
   redirect: 'http://localhost:9000/#/oauth'
 });
 
-var url = shopify.createURL();
-console.log('\n\nGo to the following URL:\n\n' + url + '\n\n');
-
 prompt.start();
 
 prompt.get([
@@ -29,6 +26,8 @@ prompt.get([
 });
 
 function doAuthorization() {
+  var url = shopify.createURL();
+  console.log('\n\nGo to the following URL:\n\n' + url + '\n\n');
 
   prompt.get([
     {
@@ -44,6 +43,8 @@ function doAuthorization() {
       }
   
       console.log(access_token);
+      shopify.setAccessToken(access_token.access_token);
+      sampleCalls();
     });
   });
 
@@ -52,6 +53,9 @@ function doAuthorization() {
 function sampleCalls() {
   // GET
   shopify.get('/admin/orders.json', function(err, resp) {
+    if(err) {
+      console.log(err);
+    }
     console.log(resp);
   });
   
@@ -77,6 +81,25 @@ function sampleCalls() {
     }
   };
   shopify.post('/admin/products.json', postData, function(err, resp) {
+    if(err) {
+      console.log(err);
+    }
+    console.log(resp);
+  });
+  
+  // PUT
+  shopify.put('/admin/products/1234.json', postData, function(err, resp) {
+    if(err) {
+      console.log(err);
+    }
+    console.log(resp);
+  });
+  
+  // DELETE
+  shopify.delete('/admin/products/1234.json', function(err, resp) {
+    if(err) {
+      console.log(err);
+    }
     console.log(resp);
   });
 }

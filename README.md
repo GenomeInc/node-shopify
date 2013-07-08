@@ -43,10 +43,15 @@ If you have saved your access token in some sort of session or cookie data, you 
     
 Once authorized, you can perform typical REST services (http://docs.shopify.com/api/ for reference):
 
+    // GET
     shopify.get('/admin/orders.json', function(err, resp) {
+      if(err) {
+        console.log(err);
+      }
       console.log(resp);
     });
     
+    // POST
     var postData = {
       product: {
         title: 'Burton Custom Freestlye 151',
@@ -68,6 +73,25 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
       }
     };
     shopify.post('/admin/products.json', postData, function(err, resp) {
+      if(err) {
+        console.log(err);
+      }
+      console.log(resp);
+    });
+    
+    // PUT
+    shopify.put('/admin/products/1234.json', postData, function(err, resp) {
+      if(err) {
+        console.log(err);
+      }
+      console.log(resp);
+    });
+    
+    // DELETE
+    shopify.delete('/admin/products/1234.json', function(err, resp) {
+      if(err) {
+        console.log(err);
+      }
       console.log(resp);
     });
 
