@@ -27,9 +27,8 @@ After you have obtained the "code" (either via your redirect or elsewhere):
     var code = ''; // put the short-time auth code in here.
 
     shopify.getAccessToken(code, function(err, access_token) {
-    		console.log(JSON.parse(err));
-    		console.log(JSON.parse(access_token));
-    	});
-    });
+  		console.log(JSON.parse(err));
+  		console.log(JSON.parse(access_token));
+  	});
 
 Built in Carolina & Ohio. www.typefoo.com
