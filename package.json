@@ -1,0 +1,16 @@
+{
+  "author": "John Josef",
+  "name": "Shopify Connect",
+  "description": "A NodeJS connector for Shopify OAuth2",
+  "version": "0.1.1",
+  "repository": {
+    "url": ""
+  },
+  "main": "./lib/shopify",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
