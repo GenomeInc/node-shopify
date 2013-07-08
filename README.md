@@ -19,9 +19,9 @@ For setting up:
     
     var url = shopify.createURL();
 
-After you have obtained the code (either via your redirect or elsewhere):
+After you have obtained the "code" (either via your redirect or elsewhere):
 
-    shopify.getAccessToken(result.code, function(err, access_token) {
+    shopify.getAccessToken(code, function(err, access_token) {
     		console.log(err);
     		console.log(JSON.parse(access_token));
     	});
