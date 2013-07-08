@@ -22,7 +22,7 @@ For setting up:
     
     var url = shopify.createURL();
 
-After you have obtained the "code" (either via your redirect or elsewhere):
+After you have obtained the 'code' (either via your redirect or elsewhere):
 
     var code = ''; // put the short-time auth code in here.
 
@@ -30,5 +30,45 @@ After you have obtained the "code" (either via your redirect or elsewhere):
   		console.log(JSON.parse(err));
   		console.log(JSON.parse(access_token));
   	});
+  	
+If you have saved your access token in some sort of session or cookie data, you can skip the authorization request:
+
+    var shopify = new shopifyObj({
+    	shop_name: 'typefoo',
+    	id: '639e5b59d03a4135d4f4cd176d8b0d0c',
+    	secret: '07e3e4d5711054ead625ac7356552660',
+    	redirect: 'http://localhost:9000/#/oauth'
+    	access_token: '' // your access token to be used
+    });
+    
+Once authorized, you can perform typical REST services (http://docs.shopify.com/api/ for reference):
+
+    shopify.get('/admin/orders.json', function(err, resp) {
+      console.log(resp);
+    });
+    
+    var postData = {
+      product: {
+        title: 'Burton Custom Freestlye 151',
+        body_html: '<strong>Good snowboard!</strong>',
+        vendor: 'Burton',
+        product_type: 'Snowboard',
+        variants: [
+          {
+            option1: 'First',
+            price: '10.00',
+            sku: 123
+          },
+          {
+            option1: 'Second',
+            price: '20.00',
+            sku: '123'
+          }
+        ]
+      }
+    };
+    shopify.post('/admin/orders.json', postData, function(err, resp) {
+      console.log(resp);
+    });
 
 Built in Carolina & Ohio. www.typefoo.com
