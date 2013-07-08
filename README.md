@@ -16,6 +16,7 @@ For setting up:
     	id: '639e5b59d03a4135d4f4cd176d8b0d0c',
     	secret: '07e3e4d5711054ead625ac7356552660',
     	redirect: 'http://localhost:9000/#/oauth'
+    	// scope: 'write_products', as an example. The default scope has access to all.
     });
     
     var url = shopify.createURL();
