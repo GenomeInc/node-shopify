@@ -1,7 +1,7 @@
 {
   "name": "shopify-node",
   "description": "A NodeJS connector for Shopify OAuth2",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Nodejitsu Inc.",
     "email": "hello@typefoo.com"
@@ -31,6 +31,6 @@
   "bugs": {
     "url": "https://github.com/uh-sem-blee/shopify-node/issues"
   },
-  "_id": "shopify-node@0.1.1",
+  "_id": "shopify-node@0.1.2",
   "_from": "shopify-node@"
 }
