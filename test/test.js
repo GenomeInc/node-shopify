@@ -39,11 +39,11 @@ function doAuthorization() {
     console.log('\n\nConnecting to Shopify, retrieving Access Token...\n\n');
     shopify.getAccessToken(result.code, function(err, access_token) {
       if(err) {
-        console.log(err);
+        return console.log(err);
       }
   
       console.log(access_token);
-      shopify.setAccessToken(access_token.access_token);
+      shopify.setAccessToken(access_token);
       sampleCalls();
     });
   });
@@ -54,7 +54,7 @@ function sampleCalls() {
   // GET
   shopify.get('/admin/orders.json', function(err, resp) {
     if(err) {
-      console.log(err);
+      return console.log(err);
     }
     console.log(resp);
   });
@@ -82,7 +82,7 @@ function sampleCalls() {
   };
   shopify.post('/admin/products.json', postData, function(err, resp) {
     if(err) {
-      console.log(err);
+      return console.log(err);
     }
     console.log(resp);
   });
@@ -90,7 +90,7 @@ function sampleCalls() {
   // PUT
   shopify.put('/admin/products/1234.json', postData, function(err, resp) {
     if(err) {
-      console.log(err);
+      return console.log(err);
     }
     console.log(resp);
   });
@@ -98,7 +98,7 @@ function sampleCalls() {
   // DELETE
   shopify.delete('/admin/products/1234.json', function(err, resp) {
     if(err) {
-      console.log(err);
+      return console.log(err);
     }
     console.log(resp);
   });

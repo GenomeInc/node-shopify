@@ -27,8 +27,8 @@ After you have obtained the 'code' (either via your redirect or elsewhere):
     var code = ''; // put the short-time auth code in here.
 
     shopify.getAccessToken(code, function(err, access_token) {
-  		console.log(JSON.parse(err));
-  		console.log(JSON.parse(access_token));
+  		console.log(err);
+  		console.log(access_token);
   	});
   	
 If you have saved your access token in some sort of session or cookie data, you can skip the authorization request:
@@ -46,7 +46,7 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
     // GET
     shopify.get('/admin/orders.json', function(err, resp) {
       if(err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log(resp);
     });
@@ -74,7 +74,7 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
     };
     shopify.post('/admin/products.json', postData, function(err, resp) {
       if(err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log(resp);
     });
@@ -82,7 +82,7 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
     // PUT
     shopify.put('/admin/products/1234.json', postData, function(err, resp) {
       if(err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log(resp);
     });
@@ -90,7 +90,7 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
     // DELETE
     shopify.delete('/admin/products/1234.json', function(err, resp) {
       if(err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log(resp);
     });
