@@ -56,6 +56,7 @@ function sampleCalls() {
     if(err) {
       return console.log(err);
     }
+    console.log('GET:');
     console.log(resp);
   });
   
@@ -84,22 +85,28 @@ function sampleCalls() {
     if(err) {
       return console.log(err);
     }
+    console.log('POST:');
     console.log(resp);
-  });
-  
-  // PUT
-  shopify.put('/admin/products/1234.json', postData, function(err, resp) {
-    if(err) {
-      return console.log(err);
-    }
-    console.log(resp);
-  });
-  
-  // DELETE
-  shopify.delete('/admin/products/1234.json', function(err, resp) {
-    if(err) {
-      return console.log(err);
-    }
-    console.log(resp);
+    // PUT
+    var productData = {
+      product: {
+        title: 'Altered Burton Custom Freestyle 151'
+      }
+    };
+    shopify.put('/admin/products/' + resp.product.id + '.json', productData, function(err, resp) {
+      if(err) {
+        return console.log(err);
+      }
+      console.log('PUT:');
+      console.log(resp);
+      // DELETE
+      shopify.delete('/admin/products/' + resp.product.id + '.json', function(err, resp) {
+        if(err) {
+          return console.log(err);
+        }
+        console.log('DELETE:');
+        console.log(resp);
+      });
+    });
   });
 }
