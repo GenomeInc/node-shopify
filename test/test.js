@@ -21,7 +21,7 @@ prompt.get([
     shopify.setAccessToken(result.access_token);
     return sampleCalls();
   }
-  
+
   doAuthorization();
 });
 
@@ -41,7 +41,7 @@ function doAuthorization() {
       if(err) {
         return console.log(err);
       }
-  
+
       console.log(access_token);
       shopify.setAccessToken(access_token);
       sampleCalls();
@@ -52,14 +52,14 @@ function doAuthorization() {
 
 function sampleCalls() {
   // GET
-  shopify.get('/admin/orders.json', function(err, resp) {
+  shopify.get('/admin/settings.json', function(err, resp) {
     if(err) {
       return console.log(err);
     }
     console.log('GET:');
     console.log(resp);
   });
-  
+
   // POST
   var postData = {
     product: {
