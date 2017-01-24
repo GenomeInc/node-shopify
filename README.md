@@ -95,4 +95,6 @@ Once authorized, you can perform typical REST services (http://docs.shopify.com/
       console.log(resp);
     });
 
-Built in Carolina & Ohio. www.typefoo.com
+
+
+uh-sem-blee, Co  2016
